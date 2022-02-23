@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Model.CNSymmetrical;
+//import Model.CNSymmetrical;
 import Model.Conexion;
 import Model.PwdHash;
 
@@ -28,7 +28,7 @@ public class Register extends JFrame {
 	private JFormattedTextField etRegUser;
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
-	private CNSymmetrical CNS = new CNSymmetrical();
+//	private CNSymmetrical CNS = new CNSymmetrical();
 	private Conexion db = new Conexion();
 	String miPwd;
 	String miCN;
