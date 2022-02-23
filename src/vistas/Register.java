@@ -26,13 +26,13 @@ public class Register extends JFrame {
 	private JFormattedTextField etRegName;
 	private JFormattedTextField etRegLastName;
 	private JFormattedTextField etRegUser;
-	private JPasswordField etRegPwd;
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
 	private CNSymmetrical CNS = new CNSymmetrical();
 	private Conexion db = new Conexion();
 	String miPwd;
 	String miCN;
+	private JFormattedTextField etRegPwd;
 
 	/**
 	 * Launch the application.
@@ -104,21 +104,21 @@ public class Register extends JFrame {
 		etRegCred.setBounds(72, 252, 210, 16);
 		contentPane.add(etRegCred);
 
-		etRegPwd = new JPasswordField();
-		etRegPwd.setBounds(72, 204, 210, 16);
-		contentPane.add(etRegPwd);
-
 		JButton btnRegister = new JButton("Registrar");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				miPwd = ph.funcionHash(new String(etRegPwd.getPassword()));
-				miCN = CNS.funcionSymmCN(etRegCred.getText());
+				miPwd = ph.funcionHash(etRegPwd.getText());
+//				miCN = CNS.funcionSymmCN(etRegCred.getText());
 				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN);
 				setVisible(false);
 			}
 		});
 		btnRegister.setBounds(130, 289, 85, 21);
 		contentPane.add(btnRegister);
+		
+		etRegPwd = new JFormattedTextField();
+		etRegPwd.setBounds(73, 202, 210, 21);
+		contentPane.add(etRegPwd);
 	}
 
 }

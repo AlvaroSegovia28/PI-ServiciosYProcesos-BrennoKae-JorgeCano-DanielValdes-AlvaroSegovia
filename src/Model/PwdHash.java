@@ -9,7 +9,7 @@ import java.security.MessageDigest;
  */
 public class PwdHash {
 
-	public static String funcionHash(String contraseña) {
+	public String funcionHash(String contraseña) {
 		String contraseñaHash = null;
 		try {
 			System.out.println("1.- Obteniendo la instancia con algoritmo MD5");

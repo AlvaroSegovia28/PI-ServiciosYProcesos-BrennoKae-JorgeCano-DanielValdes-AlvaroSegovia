@@ -9,12 +9,12 @@ import javax.crypto.*;
 public class CNSymmetrical {
 
 
-	static SecretKey key;
-	static Cipher aesCipher;
-	private static String mensajeCifrado;
-	private static String mensajeDescifrado;
+	SecretKey key;
+	Cipher aesCipher;
+	private String mensajeCifrado;
+	private String mensajeDescifrado;
 	
-	public static String funcionSymmCN(String contraseña) {
+	public String funcionSymmCN(String contraseña) {
 		try {
 			System.out.println("Obteniendo generador de claves con cifrado AES");
 			KeyGenerator keygen = KeyGenerator.getInstance("AES");
@@ -34,7 +34,7 @@ public class CNSymmetrical {
 		return mensajeCifrado;
 	}
 
-	public static String desencryptionCN(String contraseñaCifrada) {
+	public String desencryptionCN(String contraseñaCifrada) {
 		try {
 			System.out.println("Configurando Cipher para desencriptar");
 			aesCipher.init(Cipher.DECRYPT_MODE, key);

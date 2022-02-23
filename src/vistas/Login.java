@@ -24,9 +24,9 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JFormattedTextField etUser;
-	private JPasswordField passwordField;
 	String contraseñaCifradaBD;
 	String contraseñaCifradaLocal;
+	private JFormattedTextField passwordField;
 	private PwdHash ph = new PwdHash();
 	private Conexion db = new Conexion();
 	Detail viewDetail = new Detail();
@@ -77,17 +77,15 @@ public class Login extends JFrame {
 		etUser.setBounds(123, 72, 167, 19);
 		contentPane.add(etUser);
 
-		passwordField = new JPasswordField();
-		passwordField.setBounds(123, 129, 167, 19);
-		contentPane.add(passwordField);
-
 		JButton btnLogin = new JButton("Iniciar Sesi\u00F3n");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contraseñaCifradaBD = db.sacarContraseña(etUser.getText());
-//				System.out.println(contraseñaCifradaBD);
-				contraseñaCifradaLocal = ph.funcionHash(passwordField.getPassword().toString());
+				contraseñaCifradaLocal = ph.funcionHash(passwordField.getText());
 				System.out.println(contraseñaCifradaLocal);
+				
+				// La contraseña de local y de la BD es la misma pero en el if se compara de forma errónea
+				
 				if(contraseñaCifradaBD.equals(contraseñaCifradaLocal)) {
 					setVisible(false);
 					viewDetail.setVisible(true);
@@ -96,5 +94,9 @@ public class Login extends JFrame {
 		});
 		btnLogin.setBounds(178, 182, 112, 27);
 		contentPane.add(btnLogin);
+		
+		passwordField = new JFormattedTextField();
+		passwordField.setBounds(123, 132, 167, 22);
+		contentPane.add(passwordField);
 	}
 }

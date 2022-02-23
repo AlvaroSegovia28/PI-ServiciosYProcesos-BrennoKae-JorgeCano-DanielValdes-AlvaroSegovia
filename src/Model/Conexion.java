@@ -79,6 +79,16 @@ public class Conexion {
 		return sql;
 	}
 	
+//	public String ingresarKey(String key) {
+//		String sql = "INSERT INTO `bankaccount` (`key`) VALUES ('"+key+"');";
+//		return sql;
+//	}
+//	
+//	public String sacarKey(String miUser) {
+//		String sql = "SELECT cardnumber FROM bankaccount WHERE `username` = '"+miUser+"'";
+//		return sql;
+//	}
+	
 	public void columnas() {
 		try {
 			String sql = "SELECT * FROM bankaccount";
