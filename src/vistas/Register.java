@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Model.PwdHash;
+
 import javax.swing.JLabel;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
@@ -23,9 +26,7 @@ public class Register extends JFrame {
 	private JFormattedTextField etRegUser;
 	private JPasswordField etRegPwd;
 	private JFormattedTextField etRegCred;
-	
-	
-
+	private PwdHash ph = new PwdHash();
 	/**
 	 * Launch the application.
 	 */
@@ -103,6 +104,7 @@ public class Register extends JFrame {
 		JButton btnRegister = new JButton("Registrar");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ph.funcionHash(new String(etRegPwd.getPassword()));
 			}
 		});
 		btnRegister.setBounds(130, 289, 85, 21);
