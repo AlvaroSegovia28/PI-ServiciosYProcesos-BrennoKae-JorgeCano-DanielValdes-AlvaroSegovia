@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Model.Conexion;
+import Model.PwdHash;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JFormattedTextField;
@@ -13,11 +17,19 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
+	private JFormattedTextField etUser;
 	private JPasswordField passwordField;
+	String contraseñaCifradaBD;
+	String contraseñaCifradaLocal;
+	private PwdHash ph = new PwdHash();
+	private Conexion bd = new Conexion();
+	Detail viewDetail = new Detail();
 
 	/**
 	 * Launch the application.
@@ -61,7 +73,7 @@ public class Login extends JFrame {
 		lblPwd.setBounds(19, 125, 94, 29);
 		contentPane.add(lblPwd);
 
-		JFormattedTextField etUser = new JFormattedTextField();
+		etUser = new JFormattedTextField();
 		etUser.setBounds(123, 72, 167, 19);
 		contentPane.add(etUser);
 
@@ -70,6 +82,16 @@ public class Login extends JFrame {
 		contentPane.add(passwordField);
 
 		JButton btnLogin = new JButton("Iniciar Sesi\u00F3n");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contraseñaCifradaBD = bd.sacarContraseña(etUser.getText());
+				contraseñaCifradaLocal = ph.funcionHash(passwordField.toString());
+				if(contraseñaCifradaBD.equals(contraseñaCifradaLocal)) {
+					setVisible(false);
+					viewDetail.setVisible(true);
+				}
+			}
+		});
 		btnLogin.setBounds(178, 182, 112, 27);
 		contentPane.add(btnLogin);
 	}

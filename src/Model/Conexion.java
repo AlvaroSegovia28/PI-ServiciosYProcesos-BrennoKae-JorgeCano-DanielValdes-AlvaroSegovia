@@ -69,6 +69,11 @@ public class Conexion {
 		String sql = "DELETE FROM bankaccount WHERE `username` = '"+miUser+"'";
 	}
 
+	public String sacarContraseña(String miUser) {
+		String sql = "SELECT password FROM bankaccount WHERE `username` = '"+miUser+"'";
+		return sql;
+	}
+	
 	public void columnas() {
 		try {
 			String sql = "SELECT * FROM bankaccount";
