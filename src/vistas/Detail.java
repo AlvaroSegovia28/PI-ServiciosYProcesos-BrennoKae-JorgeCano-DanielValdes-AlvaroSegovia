@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Model.CNSymmetrical;
+//import Model.CNSymmetrical;
 import Model.Conexion;
 
 import javax.swing.JLabel;
@@ -19,7 +19,7 @@ public class Detail extends JFrame {
 	private JPanel contentPane;
 	String CNDesencriptada;
 	String CNEncriptado;
-	private CNSymmetrical CNS = new CNSymmetrical();
+//	private CNSymmetrical CNS = new CNSymmetrical();
 	private Conexion db = new Conexion();
 	/**
 	 * Launch the application.
@@ -90,7 +90,7 @@ public class Detail extends JFrame {
 		etDetailCred.setBounds(157, 214, 73, 26);
 		contentPane.add(etDetailCred);
 		CNEncriptado = db.sacarCN("asd");
-		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
+//		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
 		etDetailCred.setText(CNEncriptado);
 		
 	}
