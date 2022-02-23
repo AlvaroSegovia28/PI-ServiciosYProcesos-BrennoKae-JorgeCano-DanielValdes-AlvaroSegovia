@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
 
-public class login extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
@@ -26,7 +26,7 @@ public class login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					login frame = new login();
+					Login frame = new Login();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public login() {
+	public Login() {
 		setTitle("Login\r\n");
 		setBackground(new Color(230, 230, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

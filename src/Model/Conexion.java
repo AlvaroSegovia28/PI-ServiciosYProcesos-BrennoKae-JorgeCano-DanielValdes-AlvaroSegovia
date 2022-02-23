@@ -13,7 +13,7 @@ public class Conexion {
 	public Conexion() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, login, pwd);
+			conexion = DriverManager.getConnection(url, Login, pwd);
 			System.out.println(" - Conexión con MySQL establecida -");
 			if (conexion != null) {
 				System.out.println("Conexion al a bd" + url + "...ok!!");
@@ -33,7 +33,7 @@ public class Conexion {
 	}
 
 	public void Consulta(int id) {
-		String procedimiento = "{call jugadores.nombre(?)}";
+		String procedimiento = "{call banckaccount.nombre(?)}";
 		try {
 			CallableStatement ctmt = conexion.prepareCall(procedimiento);
 			ctmt.setInt(1, id);
@@ -50,7 +50,7 @@ public class Conexion {
 
 	public void insertar() {
 		try {
-			String sql = "INSERT INTO `jugadores` (`codigo`, `Nombre`, `Procedencia`, `Altura`, `Peso`, `Posicion`, `Nombre_equipo`) VALUES ('614', 'Brenno', 'Brasil', '172', '60', 'Base', '76ers');";
+			String sql = "INSERT INTO `banckaccount` (`username`, `password`, `name`, `surname`, `cardnumber`) VALUES ('x', 'x', 'x', 'x', 'x');";
 			Statement stmt = conexion.createStatement();
 			int filas = stmt.executeUpdate(sql);
 			System.out.println("Se han insertado " + filas + "filas/s");
@@ -61,16 +61,16 @@ public class Conexion {
 	}
 
 	public void modificar() {
-		String sql = "UPDATE `jugadores` SET `Nombre` = 'Brennoooo' WHERE `codigo` = 614";
+		String sql = "UPDATE `banckaccount` SET `password` = 'x' WHERE `username` = x";
 	}
 
 	public void delete() {
-		String sql = "DELETE FROM jugadores WHERE `Nombre` = 'Brennoooo'";
+		String sql = "DELETE FROM banckaccount WHERE `x` = 'x'";
 	}
 
 	public void columnas() {
 		try {
-			String sql = "SELECT * FROM jugadores";
+			String sql = "SELECT * FROM banckaccount";
 			Statement stmt = conexion.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM AUTOR");
 			ResultSetMetaData rsmd = rs.getMetaData();

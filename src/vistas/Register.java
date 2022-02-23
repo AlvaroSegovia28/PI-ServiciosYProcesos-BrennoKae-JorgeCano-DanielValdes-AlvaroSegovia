@@ -12,11 +12,19 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class register extends JFrame {
+public class Register extends JFrame {
 
 	private JPanel contentPane;
+	private JFormattedTextField etRegName;
+	private JFormattedTextField etRegLastName;
+	private JFormattedTextField etRegUser;
 	private JPasswordField etRegPwd;
+	private JFormattedTextField etRegCred;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -25,7 +33,7 @@ public class register extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					register frame = new register();
+					Register frame = new Register();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +45,7 @@ public class register extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public register() {
+	public Register() {
 		setBackground(new Color(230, 230, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 355, 387);
@@ -72,19 +80,19 @@ public class register extends JFrame {
 		lblUsuario_1_1.setBounds(139, 226, 63, 18);
 		contentPane.add(lblUsuario_1_1);
 		
-		JFormattedTextField etRegName = new JFormattedTextField();
+		etRegName = new JFormattedTextField();
 		etRegName.setBounds(73, 52, 210, 16);
 		contentPane.add(etRegName);
 		
-		JFormattedTextField etRegLastName = new JFormattedTextField();
+		etRegLastName = new JFormattedTextField();
 		etRegLastName.setBounds(74, 99, 210, 16);
 		contentPane.add(etRegLastName);
 		
-		JFormattedTextField etRegUser = new JFormattedTextField();
+		etRegUser = new JFormattedTextField();
 		etRegUser.setBounds(72, 149, 210, 16);
 		contentPane.add(etRegUser);
 		
-		JFormattedTextField etRegCred = new JFormattedTextField();
+		etRegCred = new JFormattedTextField();
 		etRegCred.setBounds(72, 252, 210, 16);
 		contentPane.add(etRegCred);
 		
@@ -93,6 +101,10 @@ public class register extends JFrame {
 		contentPane.add(etRegPwd);
 		
 		JButton btnRegister = new JButton("Registrar");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnRegister.setBounds(130, 289, 85, 21);
 		contentPane.add(btnRegister);
 	}
