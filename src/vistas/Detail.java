@@ -89,7 +89,7 @@ public class Detail extends JFrame {
 		etDetailCred.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailCred.setBounds(157, 214, 73, 26);
 		contentPane.add(etDetailCred);
-		CNEncriptado = "¹Ù9dFñøbÒ:ÍåaÍ°";
+		CNEncriptado = db.sacarCN("asd");
 		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
 		etDetailCred.setText(CNEncriptado);
 		
