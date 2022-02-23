@@ -34,7 +34,7 @@ public class Conexion {
 	}
 
 	public void Consulta(int id) {
-		String procedimiento = "{call banckaccount.nombre(?)}";
+		String procedimiento = "{call bankaccount.username(?)}";
 		try {
 			CallableStatement ctmt = conexion.prepareCall(procedimiento);
 			ctmt.setInt(1, id);
@@ -49,9 +49,9 @@ public class Conexion {
 		}
 	}
 
-	public void insertar() {
+	public void insertar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber) {
 		try {
-			String sql = "INSERT INTO `banckaccount` (`username`, `password`, `name`, `surname`, `cardnumber`) VALUES ('x', 'x', 'x', 'x', 'x');";
+			String sql = "INSERT INTO `bankaccount` (`username`, `password`, `name`, `surname`, `cardnumber`) VALUES ('"+miUser+"', '"+miPwd+"', '"+miNombre+"', '"+miSurname+"', '"+cardNumber+"');";
 			Statement stmt = conexion.createStatement();
 			int filas = stmt.executeUpdate(sql);
 			System.out.println("Se han insertado " + filas + "filas/s");
@@ -61,19 +61,19 @@ public class Conexion {
 		}
 	}
 
-	public void modificar() {
-		String sql = "UPDATE `banckaccount` SET `password` = 'x' WHERE `username` = x";
+	public void modificar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber) {
+//		String sql = "UPDATE `bankaccount` SET `x` = 'x' WHERE `x` = x";
 	}
 
-	public void delete() {
-		String sql = "DELETE FROM banckaccount WHERE `x` = 'x'";
+	public void delete(String miUser) {
+		String sql = "DELETE FROM bankaccount WHERE `username` = '"+miUser+"'";
 	}
 
 	public void columnas() {
 		try {
-			String sql = "SELECT * FROM banckaccount";
+			String sql = "SELECT * FROM bankaccount";
 			Statement stmt = conexion.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM AUTOR");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM bankaccount");
 			ResultSetMetaData rsmd = rs.getMetaData();
 
 			int nColumnas = rsmd.getColumnCount();
@@ -90,9 +90,8 @@ public class Conexion {
 		}
 	}
 
-	public static void main(String[] args) {
-		Conexion prueba = new Conexion();
-		prueba.modificar();
-	}
+//	public static void main(String[] args) {
+//		Conexion prueba = new Conexion();
+//	}
 
 }
