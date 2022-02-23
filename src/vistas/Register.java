@@ -30,7 +30,7 @@ public class Register extends JFrame {
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
 	private CNSymmetrical CNS = new CNSymmetrical();
-	private Conexion bd = new Conexion();
+	private Conexion db = new Conexion();
 	String miPwd;
 	String miCN;
 
@@ -113,7 +113,7 @@ public class Register extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miPwd = ph.funcionHash(new String(etRegPwd.getPassword()));
 				miCN = CNS.funcionSymmCN(etRegCred.getText());
-				bd.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN);
+				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN);
 				setVisible(false);
 			}
 		});

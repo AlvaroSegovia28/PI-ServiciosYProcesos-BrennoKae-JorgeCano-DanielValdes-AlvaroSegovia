@@ -73,6 +73,11 @@ public class Conexion {
 		String sql = "SELECT password FROM bankaccount WHERE `username` = '"+miUser+"'";
 		return sql;
 	}
+
+	public String sacarCN(String miUser) {
+		String sql = "SELECT cardnumber FROM bankaccount WHERE `username` = '"+miUser+"'";
+		return sql;
+	}
 	
 	public void columnas() {
 		try {

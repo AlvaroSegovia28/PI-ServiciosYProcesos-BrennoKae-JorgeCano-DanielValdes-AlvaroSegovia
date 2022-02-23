@@ -8,15 +8,20 @@ import javax.crypto.*;
  **/
 public class CNSymmetrical {
 
+
+	static KeyGenerator keygen;
+	static SecretKey key;
+	static Cipher aesCipher;
+	
 	public static String funcionSymmCN(String contraseña) {
 		String contraseñaCifrada = null;
 		try {
 			System.out.println("Obteniendo generador de claves con cifrado AES");
-			KeyGenerator keygen = KeyGenerator.getInstance("AES");
+			keygen = KeyGenerator.getInstance("AES");
 			System.out.println("Generando la clave");
-			SecretKey key = keygen.generateKey();
+			key = keygen.generateKey();
 			System.out.println("Obteniendo objeto Cipher con cifrado AES");
-			Cipher aesCipher = Cipher.getInstance("AES");
+			aesCipher = Cipher.getInstance("AES");
 			System.out.println("Configurando Cipher para encriptar");
 			aesCipher.init(Cipher.ENCRYPT_MODE, key);
 			System.out.println("mensaje original: " + contraseña);
@@ -32,11 +37,11 @@ public class CNSymmetrical {
 		String mensajeDescifrado = null;
 		try {
 			System.out.println("Configurando Cipher para desencriptar");
-			KeyGenerator keygen = KeyGenerator.getInstance("AES");
-			SecretKey key = keygen.generateKey();
-			Cipher aesCipher = Cipher.getInstance("AES");
-			aesCipher.init(Cipher.ENCRYPT_MODE, key);
-			String mensajeCifrado = new String(aesCipher.doFinal(contraseñaCifrada.getBytes()));
+			keygen = KeyGenerator.getInstance("AES");
+			key = keygen.generateKey();
+			aesCipher = Cipher.getInstance("AES");
+//			aesCipher.init(Cipher.ENCRYPT_MODE, key);
+			String mensajeCifrado = contraseñaCifrada;
 			System.out.println("Configurando Cipher para desencriptar");
 			aesCipher.init(Cipher.DECRYPT_MODE, key);
 			mensajeDescifrado = new String(aesCipher.doFinal(mensajeCifrado.getBytes()));

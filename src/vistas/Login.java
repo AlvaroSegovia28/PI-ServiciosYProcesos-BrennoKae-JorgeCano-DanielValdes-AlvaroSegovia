@@ -28,7 +28,7 @@ public class Login extends JFrame {
 	String contraseñaCifradaBD;
 	String contraseñaCifradaLocal;
 	private PwdHash ph = new PwdHash();
-	private Conexion bd = new Conexion();
+	private Conexion db = new Conexion();
 	Detail viewDetail = new Detail();
 
 	/**
@@ -84,8 +84,10 @@ public class Login extends JFrame {
 		JButton btnLogin = new JButton("Iniciar Sesi\u00F3n");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				contraseñaCifradaBD = bd.sacarContraseña(etUser.getText());
-				contraseñaCifradaLocal = ph.funcionHash(passwordField.toString());
+				contraseñaCifradaBD = db.sacarContraseña(etUser.getText());
+//				System.out.println(contraseñaCifradaBD);
+				contraseñaCifradaLocal = ph.funcionHash(passwordField.getPassword().toString());
+				System.out.println(contraseñaCifradaLocal);
 				if(contraseñaCifradaBD.equals(contraseñaCifradaLocal)) {
 					setVisible(false);
 					viewDetail.setVisible(true);

@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Model.CNSymmetrical;
+import Model.Conexion;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -13,7 +17,10 @@ import java.awt.Color;
 public class Detail extends JFrame {
 
 	private JPanel contentPane;
-
+	String CNDesencriptada;
+	String CNEncriptado;
+	private CNSymmetrical CNS = new CNSymmetrical();
+	private Conexion db = new Conexion();
 	/**
 	 * Launch the application.
 	 */
@@ -82,6 +89,10 @@ public class Detail extends JFrame {
 		etDetailCred.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailCred.setBounds(157, 214, 73, 26);
 		contentPane.add(etDetailCred);
+		CNEncriptado = "¹Ù9dFñøbÒ:ÍåaÍ°";
+		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
+		etDetailCred.setText(CNEncriptado);
+		
 	}
 
 }
