@@ -1,4 +1,5 @@
 package Model;
+
 import java.security.MessageDigest;
 
 /**
@@ -7,7 +8,7 @@ import java.security.MessageDigest;
  * que está diseñada para operar con objetos SecretKey
  */
 public class PwdHash {
-	
+
 	public static String funcionHash(String contraseña) {
 		String contraseñaHash = null;
 		try {
@@ -24,6 +25,6 @@ public class PwdHash {
 			e.printStackTrace();
 		}
 		return contraseñaHash;
-		
+
 	}
 }

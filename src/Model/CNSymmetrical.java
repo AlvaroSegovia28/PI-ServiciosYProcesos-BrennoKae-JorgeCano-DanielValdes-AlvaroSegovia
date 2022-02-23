@@ -7,7 +7,7 @@ import javax.crypto.*;
  * algoritmo DES
  **/
 public class CNSymmetrical {
-	
+
 	public static String funcionSymmCN(String contraseña) {
 		String contraseñaCifrada = null;
 		try {
@@ -27,7 +27,7 @@ public class CNSymmetrical {
 		}
 		return contraseñaCifrada;
 	}
-	
+
 	public static String desencryptionCN(String contraseñaCifrada) {
 		String mensajeDescifrado = null;
 		try {

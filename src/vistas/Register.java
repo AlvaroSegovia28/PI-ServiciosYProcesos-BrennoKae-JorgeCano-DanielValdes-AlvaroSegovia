@@ -27,6 +27,7 @@ public class Register extends JFrame {
 	private JPasswordField etRegPwd;
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
+
 	/**
 	 * Launch the application.
 	 */
@@ -55,52 +56,52 @@ public class Register extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblName = new JLabel("Nombre");
 		lblName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblName.setBounds(132, 26, 60, 16);
 		contentPane.add(lblName);
-		
+
 		JLabel lblLastName = new JLabel("Apellido");
 		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblLastName.setBounds(136, 75, 61, 14);
 		contentPane.add(lblLastName);
-		
+
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblUsuario.setBounds(139, 125, 55, 14);
 		contentPane.add(lblUsuario);
-		
+
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblContrasea.setBounds(130, 180, 82, 12);
 		contentPane.add(lblContrasea);
-		
+
 		JLabel lblUsuario_1_1 = new JLabel("Tarjeta");
 		lblUsuario_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblUsuario_1_1.setBounds(139, 226, 63, 18);
 		contentPane.add(lblUsuario_1_1);
-		
+
 		etRegName = new JFormattedTextField();
 		etRegName.setBounds(73, 52, 210, 16);
 		contentPane.add(etRegName);
-		
+
 		etRegLastName = new JFormattedTextField();
 		etRegLastName.setBounds(74, 99, 210, 16);
 		contentPane.add(etRegLastName);
-		
+
 		etRegUser = new JFormattedTextField();
 		etRegUser.setBounds(72, 149, 210, 16);
 		contentPane.add(etRegUser);
-		
+
 		etRegCred = new JFormattedTextField();
 		etRegCred.setBounds(72, 252, 210, 16);
 		contentPane.add(etRegCred);
-		
+
 		etRegPwd = new JPasswordField();
 		etRegPwd.setBounds(72, 204, 210, 16);
 		contentPane.add(etRegPwd);
-		
+
 		JButton btnRegister = new JButton("Registrar");
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,4 +112,4 @@ public class Register extends JFrame {
 		contentPane.add(btnRegister);
 	}
 
-} 
+}

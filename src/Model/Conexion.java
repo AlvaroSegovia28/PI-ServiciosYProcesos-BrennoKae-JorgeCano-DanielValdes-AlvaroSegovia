@@ -1,4 +1,5 @@
 package Model;
+
 import java.sql.*;
 
 public class Conexion {
@@ -13,7 +14,7 @@ public class Conexion {
 	public Conexion() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection(url, Login, pwd);
+			conexion = DriverManager.getConnection(url, login, pwd);
 			System.out.println(" - Conexión con MySQL establecida -");
 			if (conexion != null) {
 				System.out.println("Conexion al a bd" + url + "...ok!!");
