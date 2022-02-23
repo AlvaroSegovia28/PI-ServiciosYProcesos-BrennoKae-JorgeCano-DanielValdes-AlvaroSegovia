@@ -109,4 +109,4 @@ public class Register extends JFrame {
 		contentPane.add(btnRegister);
 	}
 
-}
+} 
