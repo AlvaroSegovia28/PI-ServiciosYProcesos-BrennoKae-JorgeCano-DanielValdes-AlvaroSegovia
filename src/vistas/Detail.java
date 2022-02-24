@@ -91,7 +91,7 @@ public class Detail extends JFrame {
 		contentPane.add(etDetailCred);
 		CNEncriptado = db.sacarCN("asd");
 //		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
-		etDetailCred.setText(CNEncriptado);
+		etDetailCred.setText("Tarjeta");
 		
 	}
 

@@ -85,7 +85,8 @@ public class Login extends JFrame {
 				System.out.println(contraseñaCifradaLocal);
 				
 				// La contraseña de local y de la BD es la misma pero en el if se compara de forma errónea
-				
+				System.out.println("CONTRASEÑA EN LA BD: " + contraseñaCifradaBD);
+				System.out.println("CONTRASEÑA INTRODUCIDA: " + contraseñaCifradaLocal);
 				if(contraseñaCifradaBD.equals(contraseñaCifradaLocal)) {
 					setVisible(false);
 					viewDetail.setVisible(true);

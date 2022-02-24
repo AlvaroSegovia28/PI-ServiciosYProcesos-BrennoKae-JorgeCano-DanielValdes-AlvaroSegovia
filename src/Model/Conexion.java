@@ -70,8 +70,20 @@ public class Conexion {
 	}
 
 	public String sacarContraseña(String miUser) {
+		String codedPwd = "";
+		try {
 		String sql = "SELECT password FROM bankaccount WHERE `username` = '"+miUser+"'";
-		return sql;
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+			codedPwd = rs.getString("password");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return codedPwd;
 	}
 
 	public String sacarCN(String miUser) {

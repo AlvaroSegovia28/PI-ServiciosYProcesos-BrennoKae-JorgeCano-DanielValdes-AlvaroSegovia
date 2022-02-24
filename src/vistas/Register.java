@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Model.CNSymmetrical;
 //import Model.CNSymmetrical;
 import Model.Conexion;
 import Model.PwdHash;
@@ -28,8 +29,9 @@ public class Register extends JFrame {
 	private JFormattedTextField etRegUser;
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
-//	private CNSymmetrical CNS = new CNSymmetrical();
+	private CNSymmetrical CNS = new CNSymmetrical();
 	private Conexion db = new Conexion();
+	Login milg = new Login();
 	String miPwd;
 	String miCN;
 	private JFormattedTextField etRegPwd;
@@ -108,9 +110,10 @@ public class Register extends JFrame {
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miPwd = ph.funcionHash(etRegPwd.getText());
-//				miCN = CNS.funcionSymmCN(etRegCred.getText());
+				miCN = CNS.funcionSymmCN(etRegCred.getText());
 				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN);
 				setVisible(false);
+				milg.setVisible(true);
 			}
 		});
 		btnRegister.setBounds(130, 289, 85, 21);
