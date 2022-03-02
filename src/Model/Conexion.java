@@ -38,9 +38,9 @@ public class Conexion {
 
 	// Register
 	
-	public void insertar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber, String key, String secretNumber) {
+	public void insertar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber, String key, String prvkey, String secretNumber) {
 		try {
-			String sql = "INSERT INTO `bankaccount` (`username`, `password`, `name`, `surname`, `cardnumber`, `keyS`, `sn`) VALUES ('"+miUser+"', '"+miPwd+"', '"+miNombre+"', '"+miSurname+"', '"+cardNumber+"', '"+key+"','"+secretNumber+"');";
+			String sql = "INSERT INTO `bankaccount` (`username`, `password`, `name`, `surname`, `cardnumber`, `keyS`, `keyA`, `sn`) VALUES ('"+miUser+"', '"+miPwd+"', '"+miNombre+"', '"+miSurname+"', '"+cardNumber+"', '"+key+"','"+prvkey+"','"+secretNumber+"');";
 			Statement stmt = conexion.createStatement();
 			int filas = stmt.executeUpdate(sql);
 			System.out.println("Se han insertado " + filas + "filas/s");

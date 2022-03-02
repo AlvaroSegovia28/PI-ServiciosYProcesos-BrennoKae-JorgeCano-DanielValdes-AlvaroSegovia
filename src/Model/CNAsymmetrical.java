@@ -2,18 +2,20 @@ package Model;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.util.Base64;
 
 import javax.crypto.Cipher;
-
-import vistas.Register;
 
 public class CNAsymmetrical {
 	
 	Conexion bd = new Conexion();
 	KeyPair keypair;
 	PublicKey publicKeypair;
+	PrivateKey privateKeypair;
 	KeyPairGenerator keygen;
+	public String prvkey;
 	Cipher rsaCipher;
 	byte [] mensaje;
 	
@@ -24,7 +26,9 @@ public class CNAsymmetrical {
 			System.out.println("Generando par de claves");
 			keypair = keygen.generateKeyPair();
 			publicKeypair = keypair.getPublic();
-			bd.ingresarKey(keypair.getPrivate(), user);
+			privateKeypair = keypair.getPrivate();
+			prvkey = Base64.getEncoder().encodeToString(privateKeypair.getEncoded());
+			//bd.ingresarKey(keypair.getPrivate(), user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
