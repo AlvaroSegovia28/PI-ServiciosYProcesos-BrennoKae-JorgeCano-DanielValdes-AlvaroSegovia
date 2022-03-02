@@ -44,7 +44,7 @@ public class CNAsymmetrical {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return contraseña;
+		return new String(mensaje);
 	}
 	
 	public String desencriptarCN(String contraseña) {

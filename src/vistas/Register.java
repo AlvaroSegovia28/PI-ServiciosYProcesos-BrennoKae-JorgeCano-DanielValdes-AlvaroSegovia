@@ -37,6 +37,7 @@ public class Register extends JFrame {
 	Login milg = new Login();
 	String miPwd;
 	String miCN;
+	String miSN;
 	private JFormattedTextField etRegPwd;
 	private JPanel panel;
 	private JLabel lblNewLabel;
@@ -122,9 +123,9 @@ public class Register extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miPwd = ph.funcionHash(etRegPwd.getText());
 				miCN = CNS.funcionSymmCN(etRegCred.getText());
-				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN, CNS.key.toString());
 				SNA.generarClaveANC(etRegUser.getText());
-				SNA.encriptarCN(etRegSN.getText());
+				miSN = SNA.encriptarCN(etRegSN.getText());
+				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN, CNS.key.toString(),miSN);
 				setVisible(false);
 				milg.setVisible(true);
 			}
