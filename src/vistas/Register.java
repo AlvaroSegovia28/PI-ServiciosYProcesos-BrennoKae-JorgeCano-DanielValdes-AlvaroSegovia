@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Model.CNAsymmetrical;
 import Model.CNSymmetrical;
 //import Model.CNSymmetrical;
 import Model.Conexion;
@@ -27,10 +28,11 @@ public class Register extends JFrame {
 	private JPanel contentPane;
 	private JFormattedTextField etRegName;
 	private JFormattedTextField etRegLastName;
-	private JFormattedTextField etRegUser;
+	public JFormattedTextField etRegUser;
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
 	private CNSymmetrical CNS = new CNSymmetrical();
+	private CNAsymmetrical SNA = new CNAsymmetrical();
 	private Conexion db = new Conexion();
 	Login milg = new Login();
 	String miPwd;
@@ -39,6 +41,7 @@ public class Register extends JFrame {
 	private JPanel panel;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	private JFormattedTextField etRegSN;
 
 	/**
 	 * Launch the application.
@@ -119,7 +122,9 @@ public class Register extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				miPwd = ph.funcionHash(etRegPwd.getText());
 				miCN = CNS.funcionSymmCN(etRegCred.getText());
-				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN);
+				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN, CNS.key.toString());
+				SNA.generarClaveANC(etRegUser.getText());
+				SNA.encriptarCN(etRegSN.getText());
 				setVisible(false);
 				milg.setVisible(true);
 			}
@@ -154,7 +159,7 @@ public class Register extends JFrame {
 		lblSN.setBounds(620, 394, 124, 18);
 		contentPane.add(lblSN);
 		
-		JFormattedTextField etRegSN = new JFormattedTextField();
+		etRegSN = new JFormattedTextField();
 		etRegSN.setBounds(619, 422, 378, 42);
 		contentPane.add(etRegSN);
 	}

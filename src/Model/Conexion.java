@@ -36,9 +36,9 @@ public class Conexion {
 
 	// Register
 	
-	public void insertar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber) {
+	public void insertar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber, String key) {
 		try {
-			String sql = "INSERT INTO `bankaccount` (`username`, `password`, `name`, `surname`, `cardnumber`) VALUES ('"+miUser+"', '"+miPwd+"', '"+miNombre+"', '"+miSurname+"', '"+cardNumber+"');";
+			String sql = "INSERT INTO `bankaccount` (`username`, `password`, `name`, `surname`, `cardnumber`, `keyS`) VALUES ('"+miUser+"', '"+miPwd+"', '"+miNombre+"', '"+miSurname+"', '"+cardNumber+"', '"+key+"');";
 			Statement stmt = conexion.createStatement();
 			int filas = stmt.executeUpdate(sql);
 			System.out.println("Se han insertado " + filas + "filas/s");
@@ -139,20 +139,39 @@ public class Conexion {
 			myCN = rs.getString("cardnumber");
 			}
 			stmt.close();
-			myCNDecoded = CNSym.desencryptionCN(myCN);
+			//myCNDecoded = CNSym.desencryptionCN(myCN);
 			
 		} catch (SQLException e) {
 			// TODO Bloque catch generado automáticamente
 			e.printStackTrace();
 		}
-		return myCNDecoded;
+		return myCN;
+	}
+	public String sacarNum(String miUser) {
+		String myCN = "";
+		String myCNDecoded = "";
+		try {
+		String sql = "SELECT cardnumber FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+			myCN = rs.getString("cardnumber");
+			}
+			stmt.close();
+			//myCNDecoded = CNSym.desencryptionCN(myCN);
+			
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return myCN;
 	}
 	
 	// Ingresar Key para cifrado asimétrico
 	
 	public void ingresarKey(String keyA, String miUser) {
 		try {
-		String sql = "INSERT INTO `bankaccount` (`keyA`) VALUES ('"+keyA+"')";
+		String sql = "INSERT INTO `bankaccount` (`keyA`) VALUES ('"+keyA+"') WHERE `username` = '"+miUser+"'";
 			Statement stmt = conexion.createStatement();
 			stmt.close();
 		} catch (SQLException e) {

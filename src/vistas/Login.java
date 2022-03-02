@@ -100,6 +100,7 @@ public class Login extends JFrame {
 					viewDetail.etDetaiLastName.setText(db.sacarApellido(userActual));
 					viewDetail.etDetailName.setText(db.sacarNombre(userActual));
 					viewDetail.etDetailCred.setText(db.sacarTarjeta(userActual));
+//					viewDetail.lblSecretNumber.setText();;
 				}
 			}
 		});

@@ -1,27 +1,33 @@
 package Model;
 
-import javax.crypto.*;
-import java.security.*;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PublicKey;
+
+import javax.crypto.Cipher;
+
+import vistas.Register;
 
 public class CNAsymmetrical {
 	
 	Conexion bd = new Conexion();
 	KeyPair keypair;
 	PublicKey publicKeypair;
+	KeyPairGenerator keygen;
 	Cipher rsaCipher;
 	byte [] mensaje;
 	
-	public String generarClaveANC(String contraseña) {
+	public void generarClaveANC(String user) {
 		try {
 			System.out.println("Obteniendo generador de claves con cifrado RSA");
-			KeyPairGenerator keygen = KeyPairGenerator.getInstance("RSA");
+			keygen = KeyPairGenerator.getInstance("RSA");
 			System.out.println("Generando par de claves");
 			keypair = keygen.generateKeyPair();
 			publicKeypair = keypair.getPublic();
+			bd.ingresarKey(keypair.getPrivate().toString(), user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return contraseña;
 	}
 	
 	public String encriptarCN(String contraseña) {
@@ -30,7 +36,7 @@ public class CNAsymmetrical {
 			rsaCipher = Cipher.getInstance("RSA");
 			System.out.println("Configurando Cipher para encriptar con clave privada");
 			rsaCipher.init(Cipher.ENCRYPT_MODE, keypair.getPublic());
-			mensaje = "Mensaje de prueba del cifrado asimétrico".getBytes();
+			mensaje = contraseña.getBytes();
 			System.out.println("Mensaje original: " + new String(mensaje));
 			System.out.println("Cifrando mensaje");
 			mensaje = rsaCipher.doFinal(mensaje);
