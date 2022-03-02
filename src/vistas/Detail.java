@@ -108,7 +108,7 @@ public class Detail extends JFrame {
 		JLabel lblNewLabel = new JLabel("Detail");
 		lblNewLabel.setFont(new Font("Unispace", Font.PLAIN, 26));
 		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(186, 336, 73, 68);
+		lblNewLabel.setBounds(186, 336, 122, 68);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
@@ -117,8 +117,8 @@ public class Detail extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblDetailUser_1_1_1_1 = new JLabel("Secret Number:");
-		lblDetailUser_1_1_1_1.setFont(new Font("Dialog", Font.BOLD, 21));
-		lblDetailUser_1_1_1_1.setBounds(466, 291, 163, 26);
+		lblDetailUser_1_1_1_1.setFont(new Font("Unispace", Font.BOLD, 17));
+		lblDetailUser_1_1_1_1.setBounds(466, 291, 165, 26);
 		contentPane.add(lblDetailUser_1_1_1_1);
 		
 		lblSecretNumber = new JLabel("Secret Number");

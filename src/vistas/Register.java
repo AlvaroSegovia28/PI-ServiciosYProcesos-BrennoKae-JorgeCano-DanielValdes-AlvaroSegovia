@@ -147,7 +147,7 @@ public class Register extends JFrame {
 		lblNewLabel.setFont(new Font("Unispace", Font.PLAIN, 26));
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setBackground(Color.WHITE);
-		lblNewLabel.setBounds(221, 397, 102, 88);
+		lblNewLabel.setBounds(221, 406, 155, 88);
 		panel.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("New label");
@@ -156,7 +156,7 @@ public class Register extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(Register.class.getResource("/images/360_F_315349043_6ohfFyx37AFusCKZtGQtJR0jqUxhb25Y.jpg")));
 		
 		JLabel lblSN = new JLabel("Secret Number");
-		lblSN.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblSN.setFont(new Font("Unispace", Font.PLAIN, 15));
 		lblSN.setBounds(620, 394, 124, 18);
 		contentPane.add(lblSN);
 		

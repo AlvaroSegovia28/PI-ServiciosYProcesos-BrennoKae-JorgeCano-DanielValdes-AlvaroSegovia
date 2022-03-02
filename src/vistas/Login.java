@@ -127,7 +127,7 @@ public class Login extends JFrame {
 		lblNewLabel_1.setFont(new Font("Unispace", Font.PLAIN, 26));
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setBackground(Color.WHITE);
-		lblNewLabel_1.setBounds(168, 296, 84, 61);
+		lblNewLabel_1.setBounds(154, 296, 134, 61);
 		panel.add(lblNewLabel_1);
 	}
 }
