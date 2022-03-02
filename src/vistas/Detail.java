@@ -53,42 +53,42 @@ public class Detail extends JFrame {
 
 		JLabel lblDetailUser = new JLabel("Usuario:");
 		lblDetailUser.setFont(new Font("Unispace", Font.BOLD, 21));
-		lblDetailUser.setBounds(497, 144, 104, 26);
+		lblDetailUser.setBounds(466, 144, 159, 26);
 		contentPane.add(lblDetailUser);
 
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setFont(new Font("Unispace", Font.BOLD, 21));
-		lblNombre.setBounds(497, 181, 99, 26);
+		lblNombre.setBounds(466, 181, 159, 26);
 		contentPane.add(lblNombre);
 
 		JLabel lblDetailUser_1_1 = new JLabel("Apellido:");
 		lblDetailUser_1_1.setFont(new Font("Unispace", Font.BOLD, 21));
-		lblDetailUser_1_1.setBounds(497, 218, 128, 26);
+		lblDetailUser_1_1.setBounds(466, 218, 159, 26);
 		contentPane.add(lblDetailUser_1_1);
 
 		JLabel lblDetailUser_1_1_1 = new JLabel("Tarjeta:");
 		lblDetailUser_1_1_1.setFont(new Font("Unispace", Font.BOLD, 21));
-		lblDetailUser_1_1_1.setBounds(497, 255, 128, 26);
+		lblDetailUser_1_1_1.setBounds(466, 255, 159, 26);
 		contentPane.add(lblDetailUser_1_1_1);
 
 		JLabel etDetailUser = new JLabel("User");
 		etDetailUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		etDetailUser.setBounds(647, 144, 115, 26);
+		etDetailUser.setBounds(647, 144, 152, 26);
 		contentPane.add(etDetailUser);
 
 		JLabel etDetailName = new JLabel("Name");
 		etDetailName.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		etDetailName.setBounds(647, 183, 73, 26);
+		etDetailName.setBounds(647, 183, 152, 26);
 		contentPane.add(etDetailName);
 
 		JLabel etDetaiLastName = new JLabel("LastName");
 		etDetaiLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		etDetaiLastName.setBounds(647, 220, 73, 26);
+		etDetaiLastName.setBounds(647, 220, 152, 26);
 		contentPane.add(etDetaiLastName);
 
 		JLabel etDetailCred = new JLabel("Credit");
 		etDetailCred.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		etDetailCred.setBounds(647, 257, 73, 26);
+		etDetailCred.setBounds(647, 257, 152, 26);
 		contentPane.add(etDetailCred);
 		CNEncriptado = db.sacarCN("asd");
 //		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
@@ -103,13 +103,23 @@ public class Detail extends JFrame {
 		JLabel lblNewLabel = new JLabel("Detail");
 		lblNewLabel.setFont(new Font("Unispace", Font.PLAIN, 26));
 		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(167, 333, 194, 95);
+		lblNewLabel.setBounds(186, 336, 73, 68);
 		panel.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon(Detail.class.getResource("/images/istockphoto-1293134999-612x612.jpg")));
 		lblNewLabel_1.setBounds(0, 0, 456, 290);
 		panel.add(lblNewLabel_1);
+		
+		JLabel lblDetailUser_1_1_1_1 = new JLabel("Secret Number");
+		lblDetailUser_1_1_1_1.setFont(new Font("Dialog", Font.BOLD, 21));
+		lblDetailUser_1_1_1_1.setBounds(466, 291, 163, 26);
+		contentPane.add(lblDetailUser_1_1_1_1);
+		
+		JLabel lblSecretNumber = new JLabel("Secret Number");
+		lblSecretNumber.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSecretNumber.setBounds(647, 293, 152, 26);
+		contentPane.add(lblSecretNumber);
 		
 	}
 

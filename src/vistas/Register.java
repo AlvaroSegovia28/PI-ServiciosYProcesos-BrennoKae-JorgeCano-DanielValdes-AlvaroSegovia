@@ -71,44 +71,44 @@ public class Register extends JFrame {
 
 		JLabel lblName = new JLabel("Nombre");
 		lblName.setFont(new Font("Unispace", Font.PLAIN, 15));
-		lblName.setBounds(620, 30, 82, 16);
+		lblName.setBounds(619, 10, 82, 16);
 		contentPane.add(lblName);
 
 		JLabel lblLastName = new JLabel("Apellido");
 		lblLastName.setFont(new Font("Unispace", Font.PLAIN, 15));
-		lblLastName.setBounds(619, 120, 125, 14);
+		lblLastName.setBounds(619, 88, 125, 14);
 		contentPane.add(lblLastName);
 
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Unispace", Font.PLAIN, 15));
-		lblUsuario.setBounds(620, 204, 101, 14);
+		lblUsuario.setBounds(619, 164, 101, 14);
 		contentPane.add(lblUsuario);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setFont(new Font("Unispace", Font.PLAIN, 15));
-		lblContrasea.setBounds(620, 291, 151, 12);
+		lblContrasea.setBounds(619, 240, 151, 12);
 		contentPane.add(lblContrasea);
 
-		JLabel lblUsuario_1_1 = new JLabel("Tarjeta");
-		lblUsuario_1_1.setFont(new Font("Unispace", Font.PLAIN, 15));
-		lblUsuario_1_1.setBounds(620, 367, 124, 18);
-		contentPane.add(lblUsuario_1_1);
+		JLabel lblCN = new JLabel("Tarjeta");
+		lblCN.setFont(new Font("Unispace", Font.PLAIN, 15));
+		lblCN.setBounds(619, 314, 124, 18);
+		contentPane.add(lblCN);
 
 		etRegName = new JFormattedTextField();
-		etRegName.setBounds(621, 56, 378, 42);
+		etRegName.setBounds(619, 36, 378, 42);
 		contentPane.add(etRegName);
 
 		etRegLastName = new JFormattedTextField();
 		etRegLastName.setBackground(Color.WHITE);
-		etRegLastName.setBounds(620, 152, 379, 42);
+		etRegLastName.setBounds(618, 112, 379, 42);
 		contentPane.add(etRegLastName);
 
 		etRegUser = new JFormattedTextField();
-		etRegUser.setBounds(620, 239, 378, 42);
+		etRegUser.setBounds(619, 188, 378, 42);
 		contentPane.add(etRegUser);
 
 		etRegCred = new JFormattedTextField();
-		etRegCred.setBounds(620, 396, 378, 42);
+		etRegCred.setBounds(619, 342, 378, 42);
 		contentPane.add(etRegCred);
 
 		JButton btnRegister = new JButton("Registrarse");
@@ -124,11 +124,11 @@ public class Register extends JFrame {
 				milg.setVisible(true);
 			}
 		});
-		btnRegister.setBounds(620, 462, 378, 47);
+		btnRegister.setBounds(619, 485, 378, 47);
 		contentPane.add(btnRegister);
 		
 		etRegPwd = new JFormattedTextField();
-		etRegPwd.setBounds(620, 313, 378, 42);
+		etRegPwd.setBounds(619, 262, 378, 42);
 		contentPane.add(etRegPwd);
 		
 		panel = new JPanel();
@@ -141,13 +141,21 @@ public class Register extends JFrame {
 		lblNewLabel.setFont(new Font("Unispace", Font.PLAIN, 26));
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setBackground(Color.WHITE);
-		lblNewLabel.setBounds(208, 421, 130, 83);
+		lblNewLabel.setBounds(221, 397, 102, 88);
 		panel.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setBounds(0, 0, 556, 350);
 		panel.add(lblNewLabel_1);
 		lblNewLabel_1.setIcon(new ImageIcon(Register.class.getResource("/images/360_F_315349043_6ohfFyx37AFusCKZtGQtJR0jqUxhb25Y.jpg")));
+		
+		JLabel lblSN = new JLabel("Secret Number");
+		lblSN.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblSN.setBounds(620, 394, 124, 18);
+		contentPane.add(lblSN);
+		
+		JFormattedTextField etRegSN = new JFormattedTextField();
+		etRegSN.setBounds(619, 422, 378, 42);
+		contentPane.add(etRegSN);
 	}
-
 }
