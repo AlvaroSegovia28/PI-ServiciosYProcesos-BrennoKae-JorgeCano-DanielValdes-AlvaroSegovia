@@ -178,7 +178,7 @@ public class Conexion {
 			Statement stmt = conexion.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {				
-				keyAs = rs.getString("password");
+				keyAs = rs.getString("keyA");
 			}
 			stmt.close();
 		} catch (SQLException e) {
@@ -197,7 +197,7 @@ public class Conexion {
 			Statement stmt = conexion.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {				
-				keyAs = rs.getString("password");
+				keyAs = rs.getString("sn");
 			}
 			stmt.close();
 		} catch (SQLException e) {
