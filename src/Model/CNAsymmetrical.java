@@ -24,7 +24,7 @@ public class CNAsymmetrical {
 			System.out.println("Generando par de claves");
 			keypair = keygen.generateKeyPair();
 			publicKeypair = keypair.getPublic();
-			bd.ingresarKey(keypair.getPrivate().toString(), user);
+			bd.ingresarKey(keypair.getPrivate(), user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

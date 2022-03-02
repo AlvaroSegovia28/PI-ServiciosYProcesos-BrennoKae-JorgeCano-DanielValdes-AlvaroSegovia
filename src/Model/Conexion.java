@@ -1,5 +1,7 @@
 package Model;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.sql.*;
 
 public class Conexion {
@@ -169,9 +171,9 @@ public class Conexion {
 	
 	// Ingresar Key para cifrado asimétrico
 	
-	public void ingresarKey(String keyA, String miUser) {
+	public void ingresarKey(PrivateKey privateKey, String miUser) {
 		try {
-		String sql = "INSERT INTO `bankaccount` (`keyA`) VALUES ('"+keyA+"') WHERE `username` = '"+miUser+"'";
+		String sql = "INSERT INTO `bankaccount` (`keyA`) VALUES ('"+privateKey+"') WHERE `username` = '"+miUser+"'";
 			Statement stmt = conexion.createStatement();
 			stmt.close();
 		} catch (SQLException e) {
