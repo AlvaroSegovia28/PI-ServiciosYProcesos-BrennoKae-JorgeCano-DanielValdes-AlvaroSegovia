@@ -111,7 +111,7 @@ public class Detail extends JFrame {
 		lblNewLabel_1.setBounds(0, 0, 456, 290);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblDetailUser_1_1_1_1 = new JLabel("Secret Number");
+		JLabel lblDetailUser_1_1_1_1 = new JLabel("Secret Number:");
 		lblDetailUser_1_1_1_1.setFont(new Font("Dialog", Font.BOLD, 21));
 		lblDetailUser_1_1_1_1.setBounds(466, 291, 163, 26);
 		contentPane.add(lblDetailUser_1_1_1_1);
