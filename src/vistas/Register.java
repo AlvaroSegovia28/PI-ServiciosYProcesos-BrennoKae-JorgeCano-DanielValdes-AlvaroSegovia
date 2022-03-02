@@ -7,11 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Model.CNAsymmetrical;
 import Model.CNSymmetrical;
-//import Model.CNSymmetrical;
 import Model.Conexion;
 import Model.PwdHash;
+import Model.SNAsymmetrical;
 
 import javax.swing.JLabel;
 import javax.swing.JFormattedTextField;
@@ -32,7 +31,7 @@ public class Register extends JFrame {
 	private JFormattedTextField etRegCred;
 	private PwdHash ph = new PwdHash();
 	private CNSymmetrical CNS = new CNSymmetrical();
-	private CNAsymmetrical SNA = new CNAsymmetrical();
+	private SNAsymmetrical SNA = new SNAsymmetrical();
 	private Conexion db = new Conexion();
 	Login milg = new Login();
 	String miPwd;
@@ -123,11 +122,11 @@ public class Register extends JFrame {
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				miPwd = ph.funcionHash(etRegPwd.getText());
-				miCN = CNS.funcionSymmCN(etRegCred.getText());
-				SNA.generarClaveANC(etRegUser.getText());
+				miCN = CNS.encryptCN(etRegCred.getText());
+				SNA.generateKeyASN();
 				prvKey = SNA.prvkey;
-				miSN = SNA.encriptarCN(etRegSN.getText());
-				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN, CNS.key.toString(),prvKey,miSN);
+				miSN = SNA.encryptCN(etRegSN.getText());
+				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN, CNS.key.toString(), prvKey, miSN);
 				setVisible(false);
 				milg.setVisible(true);
 			}

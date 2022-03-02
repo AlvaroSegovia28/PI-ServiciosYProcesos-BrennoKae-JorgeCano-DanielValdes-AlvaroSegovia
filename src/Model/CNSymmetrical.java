@@ -15,7 +15,7 @@ public class CNSymmetrical {
 	private String mensajeCifrado;
 	private String mensajeDescifrado;
 	
-	public String funcionSymmCN(String contraseña) {
+	public String encryptCN(String contraseña) {
 		try {
 			System.out.println("Obteniendo generador de claves con cifrado AES");
 			keygen = KeyGenerator.getInstance("AES");
@@ -35,7 +35,7 @@ public class CNSymmetrical {
 		return mensajeCifrado;
 	}
 
-	public String desencryptionCN(String contraseñaCifrada) {
+	public String desencryptCN(String contraseñaCifrada) {
 		try {
 			aesCipher = Cipher.getInstance("AES");
 			System.out.println("Configurando Cipher para desencriptar");
