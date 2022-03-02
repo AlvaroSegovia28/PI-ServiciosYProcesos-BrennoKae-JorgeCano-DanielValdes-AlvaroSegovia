@@ -95,20 +95,20 @@ public class Register extends JFrame {
 		contentPane.add(lblUsuario_1_1);
 
 		etRegName = new JFormattedTextField();
-		etRegName.setBounds(620, 396, 378, 42);
+		etRegName.setBounds(621, 56, 378, 42);
 		contentPane.add(etRegName);
 
 		etRegLastName = new JFormattedTextField();
 		etRegLastName.setBackground(Color.WHITE);
-		etRegLastName.setBounds(619, 57, 379, 42);
+		etRegLastName.setBounds(620, 152, 379, 42);
 		contentPane.add(etRegLastName);
 
 		etRegUser = new JFormattedTextField();
-		etRegUser.setBounds(620, 145, 378, 42);
+		etRegUser.setBounds(620, 239, 378, 42);
 		contentPane.add(etRegUser);
 
 		etRegCred = new JFormattedTextField();
-		etRegCred.setBounds(620, 314, 378, 42);
+		etRegCred.setBounds(620, 396, 378, 42);
 		contentPane.add(etRegCred);
 
 		JButton btnRegister = new JButton("Registrarse");
@@ -128,7 +128,7 @@ public class Register extends JFrame {
 		contentPane.add(btnRegister);
 		
 		etRegPwd = new JFormattedTextField();
-		etRegPwd.setBounds(620, 229, 378, 42);
+		etRegPwd.setBounds(620, 313, 378, 42);
 		contentPane.add(etRegPwd);
 		
 		panel = new JPanel();

@@ -13,7 +13,6 @@ import Model.PwdHash;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JFormattedTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Color;
@@ -25,10 +24,10 @@ import javax.swing.ImageIcon;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
-	private JFormattedTextField etUser;
+	private JFormattedTextField passwordField;
 	String contraseñaCifradaBD;
 	String contraseñaCifradaLocal;
-	private JFormattedTextField passwordField;
+	private JFormattedTextField etUser;
 	private PwdHash ph = new PwdHash();
 	private Conexion db = new Conexion();
 	Detail viewDetail = new Detail();
@@ -76,9 +75,9 @@ public class Login extends JFrame {
 		lblPwd.setBounds(443, 143, 94, 29);
 		contentPane.add(lblPwd);
 
-		etUser = new JFormattedTextField();
-		etUser.setBounds(443, 183, 330, 42);
-		contentPane.add(etUser);
+		passwordField = new JFormattedTextField();
+		passwordField.setBounds(443, 183, 330, 42);
+		contentPane.add(passwordField);
 
 		JButton btnLogin = new JButton("Iniciar Sesi\u00F3n");
 		btnLogin.setFont(new Font("Unispace", Font.PLAIN, 11));
@@ -102,10 +101,10 @@ public class Login extends JFrame {
 		btnLogin.setBounds(443, 283, 330, 42);
 		contentPane.add(btnLogin);
 		
-		passwordField = new JFormattedTextField();
-		passwordField.setForeground(Color.BLACK);
-		passwordField.setBounds(443, 73, 330, 42);
-		contentPane.add(passwordField);
+		etUser = new JFormattedTextField();
+		etUser.setForeground(Color.BLACK);
+		etUser.setBounds(443, 73, 330, 42);
+		contentPane.add(etUser);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLACK);
