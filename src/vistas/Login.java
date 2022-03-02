@@ -19,6 +19,8 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 
@@ -51,33 +53,37 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setForeground(Color.WHITE);
 		setTitle("Login\r\n");
 		setBackground(new Color(230, 230, 250));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 818, 456);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 240));
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 9, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblUser = new JLabel("Usuario");
-		lblUser.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblUser.setFont(new Font("Unispace", Font.BOLD, 15));
 		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUser.setBounds(45, 68, 68, 27);
+		lblUser.setBounds(443, 35, 68, 27);
 		contentPane.add(lblUser);
 
 		JLabel lblPwd = new JLabel("Contrase\u00F1a");
-		lblPwd.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblPwd.setFont(new Font("Unispace", Font.BOLD, 15));
 		lblPwd.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPwd.setBounds(19, 125, 94, 29);
+		lblPwd.setBounds(443, 143, 94, 29);
 		contentPane.add(lblPwd);
 
 		etUser = new JFormattedTextField();
-		etUser.setBounds(123, 72, 167, 19);
+		etUser.setBounds(443, 183, 330, 42);
 		contentPane.add(etUser);
 
 		JButton btnLogin = new JButton("Iniciar Sesi\u00F3n");
+		btnLogin.setFont(new Font("Unispace", Font.PLAIN, 11));
+		btnLogin.setForeground(SystemColor.text);
+		btnLogin.setBackground(SystemColor.activeCaptionText);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contraseñaCifradaBD = db.sacarContraseña(etUser.getText());
@@ -93,11 +99,30 @@ public class Login extends JFrame {
 				}
 			}
 		});
-		btnLogin.setBounds(178, 182, 112, 27);
+		btnLogin.setBounds(443, 283, 330, 42);
 		contentPane.add(btnLogin);
 		
 		passwordField = new JFormattedTextField();
-		passwordField.setBounds(123, 132, 167, 22);
+		passwordField.setForeground(Color.BLACK);
+		passwordField.setBounds(443, 73, 330, 42);
 		contentPane.add(passwordField);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
+		panel.setBounds(0, 0, 410, 417);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/images/93f52a03c9229869dcdef8b0451057fc.jpg")));
+		lblNewLabel.setBounds(-35, 0, 473, 238);
+		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Log In");
+		lblNewLabel_1.setFont(new Font("Unispace", Font.PLAIN, 26));
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setBackground(Color.WHITE);
+		lblNewLabel_1.setBounds(151, 300, 113, 59);
+		panel.add(lblNewLabel_1);
 	}
 }
