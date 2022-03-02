@@ -95,8 +95,6 @@ public class Detail extends JFrame {
 		etDetailCred.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailCred.setBounds(647, 257, 152, 26);
 		contentPane.add(etDetailCred);
-//		CNEncriptado = db.sacarCN("asd");
-//		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
 		etDetailCred.setText("Tarjeta");
 		
 		JPanel panel = new JPanel();

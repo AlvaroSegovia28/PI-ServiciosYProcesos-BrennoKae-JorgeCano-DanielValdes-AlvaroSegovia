@@ -95,7 +95,7 @@ public class Conexion {
 		}
 		return myUsr;
 	}
-	
+
 	public String sacarNombre(String miUser) {
 		String myName = "";
 		try {
@@ -112,7 +112,7 @@ public class Conexion {
 		}
 		return myName;
 	}
-	
+
 	public String sacarApellido(String miUser) {
 		String myLastName = "";
 		try {
@@ -169,19 +169,6 @@ public class Conexion {
 		return myCN;
 	}
 	
-	// Ingresar Key para cifrado asimétrico
-	
-	public void ingresarKey(PrivateKey privateKey, String miUser) {
-		try {
-		String sql = "INSERT INTO `bankaccount` (`keyA`) VALUES ('"+privateKey+"') WHERE `username` = '"+miUser+"'";
-			Statement stmt = conexion.createStatement();
-			stmt.close();
-		} catch (SQLException e) {
-			// TODO Bloque catch generado automáticamente
-			e.printStackTrace();
-		}
-	}
-
 	// Sacar Key para cifrado asimétrico
 	
 	public String sacarKey(String miUser) {
@@ -200,5 +187,23 @@ public class Conexion {
 		}
 		return keyAs;
 	}
-
+	
+	// Sacar Secret Number para cifrado asimétrico
+	
+	public String sacarSN(String miUser) {
+		String keyAs = "";
+		try {
+		String sql = "SELECT sn FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+				keyAs = rs.getString("password");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return keyAs;
+	}
 }

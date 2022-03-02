@@ -15,6 +15,8 @@ public class CNSymmetrical {
 	private String mensajeCifrado;
 	private String mensajeDescifrado;
 	
+	// Método para encriptar la CardNumber
+	
 	public String encryptCN(String contraseña) {
 		try {
 			System.out.println("Obteniendo generador de claves con cifrado AES");
@@ -35,6 +37,8 @@ public class CNSymmetrical {
 		return mensajeCifrado;
 	}
 
+	// Método para desencriptar la CardNumber
+	
 	public String desencryptCN(String contraseñaCifrada) {
 		try {
 			aesCipher = Cipher.getInstance("AES");

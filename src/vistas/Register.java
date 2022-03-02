@@ -38,6 +38,9 @@ public class Register extends JFrame {
 	String miCN;
 	String miSN;
 	String prvKey;
+	String prvKey2;
+	String encSN;
+	
 	private JFormattedTextField etRegPwd;
 	private JPanel panel;
 	private JLabel lblNewLabel;
@@ -121,12 +124,26 @@ public class Register extends JFrame {
 		btnRegister.setFont(new Font("Unispace", Font.PLAIN, 17));
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Hasheamos la contraseña
 				miPwd = ph.funcionHash(etRegPwd.getText());
+				// Generamos clave del cifrado simétrico del numero de tarjeta para introducirlo cifrado
 				miCN = CNS.encryptCN(etRegCred.getText());
+				// Generamos el privateKey del asimétrico para el número secreto
 				SNA.generateKeyASN();
+				// Lo guardamos en una variable
 				prvKey = SNA.prvkey;
-				miSN = SNA.encryptCN(etRegSN.getText());
+				// Ciframos de forma asimétrica el número secreto
+				miSN = SNA.encryptSN(etRegSN.getText());
+				// Introducimos en la BD la contraseña hasheada
+				// El CardNumber cifrado simétricamente junto con su key 
+				// El SecretNumber cifrado asimétricamente junto con la privateKey
 				db.insertar(etRegUser.getText(), miPwd, etRegName.getText(), etRegLastName.getText(), miCN, CNS.key.toString(), prvKey, miSN);
+				// Sacamos el SecretNumber cifrado junto a su privateKey
+//				prvKey2 = db.sacarKey(etRegUser.getText());
+//				encSN = db.sacarSN(etRegUser.getText());
+				// Usamos la privateKey para descifrar el SecretNumber
+//				System.out.println(SNA.desencryptSN(SNA.getPrivateKey(prvKey2)));
+				
 				setVisible(false);
 				milg.setVisible(true);
 			}
