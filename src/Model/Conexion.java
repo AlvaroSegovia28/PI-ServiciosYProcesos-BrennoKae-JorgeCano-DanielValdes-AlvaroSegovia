@@ -34,22 +34,8 @@ public class Conexion {
 		}
 	}
 
-	public void Consulta(int id) {
-		String procedimiento = "{call bankaccount.username(?)}";
-		try {
-			CallableStatement ctmt = conexion.prepareCall(procedimiento);
-			ctmt.setInt(1, id);
-			ctmt.execute();
-			ResultSet rset = ctmt.getResultSet();
-			rset.next();
-			System.out.println(rset.getString(1));
-			rset.close();
-			ctmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
+	// Register
+	
 	public void insertar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber) {
 		try {
 			String sql = "INSERT INTO `bankaccount` (`username`, `password`, `name`, `surname`, `cardnumber`) VALUES ('"+miUser+"', '"+miPwd+"', '"+miNombre+"', '"+miSurname+"', '"+cardNumber+"');";
@@ -61,15 +47,19 @@ public class Conexion {
 			s.printStackTrace();
 		}
 	}
-
-	public void modificar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber) {
+	
+	// Querys para modificar o deletear
+	
+//	public void modificar(String miUser,String miPwd,String miNombre, String miSurname, String cardNumber) {
 //		String sql = "UPDATE `bankaccount` SET `x` = 'x' WHERE `x` = x";
-	}
+//	}
+//
+//	public void delete(String miUser) {
+//		String sql = "DELETE FROM bankaccount WHERE `username` = '"+miUser+"'";
+//	}
 
-	public void delete(String miUser) {
-		String sql = "DELETE FROM bankaccount WHERE `username` = '"+miUser+"'";
-	}
-
+	// Sacar contraseña para hasheado
+	
 	public String sacarContraseña(String miUser) {
 		String codedPwd = "";
 		try {
@@ -103,6 +93,7 @@ public class Conexion {
 		}
 		return myUsr;
 	}
+	
 	public String sacarNombre(String miUser) {
 		String myName = "";
 		try {
@@ -119,6 +110,7 @@ public class Conexion {
 		}
 		return myName;
 	}
+	
 	public String sacarApellido(String miUser) {
 		String myLastName = "";
 		try {
@@ -135,6 +127,7 @@ public class Conexion {
 		}
 		return myLastName;
 	}
+	
 	public String sacarTarjeta(String miUser) {
 		String myCN = "";
 		String myCNDecoded = "";
@@ -155,40 +148,36 @@ public class Conexion {
 		return myCNDecoded;
 	}
 	
+	// Ingresar Key para cifrado asimétrico
 	
-//	public String ingresarKey(String key) {
-//		String sql = "INSERT INTO `bankaccount` (`key`) VALUES ('"+key+"');";
-//		return sql;
-//	}
-//	
-//	public String sacarKey(String miUser) {
-//		String sql = "SELECT cardnumber FROM bankaccount WHERE `username` = '"+miUser+"'";
-//		return sql;
-//	}
-	
-	public void columnas() {
+	public void ingresarKey(String keyA, String miUser) {
 		try {
-			String sql = "SELECT * FROM bankaccount";
+		String sql = "INSERT INTO `bankaccount` (`keyA`) VALUES ('"+keyA+"')";
 			Statement stmt = conexion.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM bankaccount");
-			ResultSetMetaData rsmd = rs.getMetaData();
-
-			int nColumnas = rsmd.getColumnCount();
-			System.out.println("Nombre tabla: " + rsmd.getTableName(1));
-			System.out.println("La tabla tiene: " + rsmd.getColumnCount() + " columnas.");
-
-			for (int i = 0; i < nColumnas + 1; i++) {
-				System.out.println(rsmd.getCatalogName(i));
-			}
-			rs.close();
 			stmt.close();
-		} catch (SQLException s) {
-			s.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
 		}
 	}
 
-//	public static void main(String[] args) {
-//		Conexion prueba = new Conexion();
-//	}
+	// Sacar Key para cifrado asimétrico
+	
+	public String sacarKey(String miUser) {
+		String keyAs = "";
+		try {
+		String sql = "SELECT keyA FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+				keyAs = rs.getString("password");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return keyAs;
+	}
 
 }

@@ -128,4 +128,4 @@ public class Detail extends JFrame {
 		
 	}
 
-}
+} 

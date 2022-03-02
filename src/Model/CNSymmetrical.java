@@ -45,4 +45,4 @@ public class CNSymmetrical {
 		}
 		return mensajeDescifrado;
 	}
-}
+} 
