@@ -9,6 +9,7 @@ public class Conexion {
 	private String pwd = "";
 	private String url = "jdbc:mysql://localhost/" + bd;
 	private Connection conexion;
+	CNSymmetrical CNSym = new CNSymmetrical();
 
 	// Constructor que crea la conexión
 	public Conexion() {
@@ -86,10 +87,74 @@ public class Conexion {
 		return codedPwd;
 	}
 
-	public String sacarCN(String miUser) {
-		String sql = "SELECT cardnumber FROM bankaccount WHERE `username` = '"+miUser+"'";
-		return sql;
+	public String sacarUser(String miUser) {
+		String myUsr = "";
+		try {
+		String sql = "SELECT username FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+			myUsr = rs.getString("username");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return myUsr;
 	}
+	public String sacarNombre(String miUser) {
+		String myName = "";
+		try {
+		String sql = "SELECT name FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+			myName = rs.getString("name");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return myName;
+	}
+	public String sacarApellido(String miUser) {
+		String myLastName = "";
+		try {
+		String sql = "SELECT surname FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+			myLastName = rs.getString("surname");
+			}
+			stmt.close();
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return myLastName;
+	}
+	public String sacarTarjeta(String miUser) {
+		String myCN = "";
+		String myCNDecoded = "";
+		try {
+		String sql = "SELECT cardnumber FROM bankaccount WHERE `username` = '"+miUser+"'";
+			Statement stmt = conexion.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {				
+			myCN = rs.getString("cardnumber");
+			}
+			stmt.close();
+			myCNDecoded = CNSym.desencryptionCN(myCN);
+			
+		} catch (SQLException e) {
+			// TODO Bloque catch generado automáticamente
+			e.printStackTrace();
+		}
+		return myCNDecoded;
+	}
+	
 	
 //	public String ingresarKey(String key) {
 //		String sql = "INSERT INTO `bankaccount` (`key`) VALUES ('"+key+"');";

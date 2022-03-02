@@ -95,6 +95,11 @@ public class Login extends JFrame {
 				if(contraseñaCifradaBD.equals(contraseñaCifradaLocal)) {
 					setVisible(false);
 					viewDetail.setVisible(true);
+					String userActual = etUser.getText();
+					viewDetail.etDetailUser.setText(userActual);
+					viewDetail.etDetaiLastName.setText(db.sacarApellido(userActual));
+					viewDetail.etDetailName.setText(db.sacarNombre(userActual));
+					viewDetail.etDetailCred.setText(db.sacarTarjeta(userActual));
 				}
 			}
 		});

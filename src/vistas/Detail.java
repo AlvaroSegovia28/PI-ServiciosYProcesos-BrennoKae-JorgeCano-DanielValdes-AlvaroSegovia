@@ -22,6 +22,11 @@ public class Detail extends JFrame {
 	String CNEncriptado;
 //	private CNSymmetrical CNS = new CNSymmetrical();
 	private Conexion db = new Conexion();
+	public JLabel etDetailUser;
+	public JLabel etDetailName;
+	public JLabel etDetaiLastName;
+	public JLabel etDetailCred;
+	public JLabel lblSecretNumber;
 	/**
 	 * Launch the application.
 	 */
@@ -71,26 +76,26 @@ public class Detail extends JFrame {
 		lblDetailUser_1_1_1.setBounds(466, 255, 159, 26);
 		contentPane.add(lblDetailUser_1_1_1);
 
-		JLabel etDetailUser = new JLabel("User");
+		etDetailUser = new JLabel("User");
 		etDetailUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailUser.setBounds(647, 144, 152, 26);
 		contentPane.add(etDetailUser);
 
-		JLabel etDetailName = new JLabel("Name");
+		etDetailName = new JLabel("Name");
 		etDetailName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailName.setBounds(647, 183, 152, 26);
 		contentPane.add(etDetailName);
 
-		JLabel etDetaiLastName = new JLabel("LastName");
+		etDetaiLastName = new JLabel("LastName");
 		etDetaiLastName.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetaiLastName.setBounds(647, 220, 152, 26);
 		contentPane.add(etDetaiLastName);
 
-		JLabel etDetailCred = new JLabel("Credit");
+		etDetailCred = new JLabel("Credit");
 		etDetailCred.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailCred.setBounds(647, 257, 152, 26);
 		contentPane.add(etDetailCred);
-		CNEncriptado = db.sacarCN("asd");
+//		CNEncriptado = db.sacarCN("asd");
 //		CNDesencriptada = CNS.desencryptionCN(CNEncriptado);
 		etDetailCred.setText("Tarjeta");
 		
@@ -116,7 +121,7 @@ public class Detail extends JFrame {
 		lblDetailUser_1_1_1_1.setBounds(466, 291, 163, 26);
 		contentPane.add(lblDetailUser_1_1_1_1);
 		
-		JLabel lblSecretNumber = new JLabel("Secret Number");
+		lblSecretNumber = new JLabel("Secret Number");
 		lblSecretNumber.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSecretNumber.setBounds(647, 293, 152, 26);
 		contentPane.add(lblSecretNumber);
