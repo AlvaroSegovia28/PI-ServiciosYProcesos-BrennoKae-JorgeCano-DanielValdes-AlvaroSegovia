@@ -13,6 +13,7 @@ import Model.Conexion;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Detail extends JFrame {
 
@@ -71,7 +72,7 @@ public class Detail extends JFrame {
 		contentPane.add(lblDetailUser_1_1_1);
 
 		JLabel etDetailUser = new JLabel("User");
-		etDetailUser.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		etDetailUser.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		etDetailUser.setBounds(647, 144, 115, 26);
 		contentPane.add(etDetailUser);
 
@@ -102,8 +103,13 @@ public class Detail extends JFrame {
 		JLabel lblNewLabel = new JLabel("Detail");
 		lblNewLabel.setFont(new Font("Unispace", Font.PLAIN, 26));
 		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(168, 366, 194, 95);
+		lblNewLabel.setBounds(167, 333, 194, 95);
 		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(Detail.class.getResource("/images/istockphoto-1293134999-612x612.jpg")));
+		lblNewLabel_1.setBounds(0, 0, 456, 290);
+		panel.add(lblNewLabel_1);
 		
 	}
 
